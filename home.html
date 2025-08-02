@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>نقل‌قول‌های تصادفی</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>نقل‌قول روز</h1>
+        <blockquote class="quote fade-in">
+            <p>«موفقیت یعنی رفتن از شکستی به شکست دیگر بدون از دست دادن اشتیاق.»</p>
+            <footer>— وینستون چرچیل</footer>
+        </blockquote>
+        <button onclick="newQuote()">نقل‌قول جدید</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "«هیچ راهی به جز جلو رفتن وجود ندارد.»", author: "ناشناس" },
+            { text: "«برای آن‌که بزرگ باشی، باید بتوانی کوچک باشی.»", author: "ناشناس" },
+            { text: "«آینده به کسانی تعلق دارد که به زیبایی رویاهایشان باور دارند.»", author: "الئانور روزولت" },
+            { text: "«یا راهی خواهم ساخت یا راهی خواهم یافت.»", author: "ناشناس" },
+            { text: "«موفقیت نتیجهٔ تمرکز است، نه عجله.»", author: "ناشناس" }
+        ];
+
+        function newQuote() {
+            const q = quotes[Math.floor(Math.random() * quotes.length)];
+            const quoteEl = document.querySelector('.quote');
+            quoteEl.classList.remove('fade-in');
+            void quoteEl.offsetWidth; // trigger reflow for animation restart
+            quoteEl.innerHTML = `<p>${q.text}</p><footer>— ${q.author}</footer>`;
+            quoteEl.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
