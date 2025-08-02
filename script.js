@@ -17,6 +17,8 @@ app.get('/',(req,res)=>{
     res.sendFile("C:\\Users\\haniyeh.zahraee\\Documents\\haniyeh-projects\\login\\login.html");
 });
 
+// you need to use this format: res.sendFile(__dirname + "login.html")
+
 app.post('/submit',(req,res)=>{
     console.log(req.body);
     if (req.body.password == "haniyeh"){
@@ -30,4 +32,5 @@ app.post('/submit',(req,res)=>{
 
 app.listen(port, ()=>{
     console.log(`server is running on port ${port}`);
+
 })
